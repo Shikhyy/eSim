@@ -38,4 +38,4 @@ It contains the documentation to package eSim for Ubuntu OS.
 
 ## Ubuntu 25.04 installation report
 
-Problems found while installing eSim 2.5 on Ubuntu 25.04, how each was fixed, and the evidence (log excerpts and screenshots) are in [UBUNTU_25.04_INSTALL_REPORT.md](UBUNTU_25.04_INSTALL_REPORT.md).
+Problems found while installing eSim 2.5 on Ubuntu 25.04, how each was fixed, and the evidence (log excerpts and screenshots) are in [eSim 2.5 on Ubuntu 25.04: Installation Report](eSim-2.5-Ubuntu-25.04-Installation-Report/) (also available as a [PDF](eSim-2.5-Ubuntu-25.04-Installation-Report/eSim-2.5-Ubuntu-25.04-Installation-Report.pdf)).
