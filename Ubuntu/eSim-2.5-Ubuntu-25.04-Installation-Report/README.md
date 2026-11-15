@@ -27,7 +27,7 @@ on a new Ubuntu 25.04 system (23 min 56 s, exit code 0) and eSim starts.
 |---|---|
 | Problems found | 10: 8 reproduced in test runs, 2 found by code review |
 | Problems fixed | 10 |
-| Verification | One-shot install on a clean Ubuntu 25.04 container: exit code 0. GHDL 4.1.0, Verilator 4.210, ngspice and KiCad 8.0.8 present, and the eSim window opens |
+| Verification | One-shot install on a clean Ubuntu 25.04 container: exit code 0. GHDL 4.1.0, Verilator 4.210, ngspice and KiCad 8.0.8 present, the eSim window opens, and test simulations in ngspice and GHDL give the expected results |
 | Files changed | 3 installer scripts (1 new), and this report |
 | Earlier work | P1, P6 and P7 were already described in [REPORT.md](../REPORT.md). The other seven are additional findings (section 7) |
 
@@ -426,6 +426,17 @@ of this report, shows the main window after the dialog was confirmed.
 
 *Figure 2. The eSim 2.5 splash screen and the workspace dialog, on Ubuntu 25.04.*
 
+### 4.4 Simulation check
+
+To confirm that the installed simulators actually work, and do not only report a version, one
+small test was run in each of them ([evidence 09](evidence/09-simulation-checks.txt)).
+
+| Tool | Test | Expected | Measured |
+|---|---|---|---|
+| ngspice | RC low-pass filter, 1 V step, R = 1 kOhm, C = 1 uF: output voltage at t = 1 ms | 1 - exp(-1) = 0.632121 V | 0.632119 V |
+| ngspice | Same circuit: output voltage at t = 5 ms | 1 - exp(-5) = 0.993262 V | 0.993262 V |
+| GHDL | A VHDL design with one process that reports a message, analysed, elaborated and run | Message printed, exit status 0 | `hello.vhd:5:5:@0ms:(report note): GHDL simulation OK`, exit status 0 |
+
 ## 5. Observations that are not counted as problems
 
 - **`psutil` in the virtual environment.** `psutil` is installed with `apt`, outside the eSim
@@ -444,9 +455,9 @@ of this report, shows the main window after the dialog was confirmed.
 - Only x86_64 was tested, in a container with a virtual display, not on a physical desktop or
   in a full virtual machine. Package versions are those in the Ubuntu 25.04 archive on
   15 November 2026.
-- The screenshots show eSim starting. No circuit was drawn or simulated, so correct
-  simulation results from ngspice and GHDL are not covered; the checks show only that they
-  install and report their versions.
+- The screenshots show eSim starting, and two small test circuits were simulated (section
+  4.4). eSim's own graphical simulation workflow was not exercised, and Verilator and the
+  KiCad editor were checked only by their version output and by launching eSim.
 - P9 and P10 were found by reading the code and are not covered by a failing test run.
 
 ## 7. Relation to the existing REPORT.md
@@ -500,5 +511,6 @@ chmod +x install-eSim.sh install-eSim-scripts/*.sh
 | [06-ghdl-unhandled-llvm-20.txt](evidence/06-ghdl-unhandled-llvm-20.txt) | GHDL `configure` rejecting LLVM 20 (P7) |
 | [07-clangxx-not-found.txt](evidence/07-clangxx-not-found.txt) | GHDL build failing on `clang++` (P8) |
 | [08-post-install-checks.txt](evidence/08-post-install-checks.txt) | Checks after the one-shot installation (section 4) |
+| [09-simulation-checks.txt](evidence/09-simulation-checks.txt) | ngspice and GHDL test simulations (section 4.4) |
 | [eSim-2.5-main-window.png](evidence/eSim-2.5-main-window.png) | Figure 1 |
 | [eSim-2.5-running-on-ubuntu-25.04.png](evidence/eSim-2.5-running-on-ubuntu-25.04.png) | Figure 2 |

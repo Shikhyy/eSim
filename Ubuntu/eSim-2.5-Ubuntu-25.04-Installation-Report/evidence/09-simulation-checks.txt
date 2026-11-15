@@ -1,0 +1,9 @@
+# 1. ngspice: RC step response (batch mode)
+# Expected: v(out) at t = RC = 1 ms is 1 - exp(-1) = 0.632121 V; at 5 ms it is 1 - exp(-5) = 0.993262 V
+Circuit: * rc low-pass filter, 1 v step, r = 1 kohm, c = 1 uf (time constant 1 ms)
+v_at_1ms            =  6.321194e-01
+v_at_5ms            =  9.932623e-01
+
+# 2. GHDL: analyse, elaborate and run a VHDL design
+hello.vhd:5:5:@0ms:(report note): GHDL simulation OK
+exit status: 0

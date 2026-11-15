@@ -3,6 +3,8 @@ eSim Packaging
 
 It contains all the documentation for packaging eSim for distribution.
 
+> **FOSSEE Winter Internship 2026, Screening Task 4:** installing eSim 2.5 on Ubuntu 25.04. The problems found, the fixes and the evidence are in the [eSim 2.5 on Ubuntu 25.04: Installation Report](Ubuntu/eSim-2.5-Ubuntu-25.04-Installation-Report/), which also has a PDF copy.
+
 
 # Packaging eSim for Distribution:
 
