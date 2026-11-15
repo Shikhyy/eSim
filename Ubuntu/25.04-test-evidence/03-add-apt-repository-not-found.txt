@@ -1,0 +1,14 @@
+Downloading pyqt5_sip-12.20.1-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.whl (282 kB)
+Installing collected packages: PyQt5-Qt5, PyQt5-sip, PyQt5
+
+Successfully installed PyQt5-5.15.11 PyQt5-Qt5-5.15.19 PyQt5-sip-12.20.1
+Installing KiCad...........................
+Ubuntu 25.04 detected.
+Adding KiCad PPA to local apt repository: kicad/kicad-8.0-releases
+sudo: add-apt-repository: command not found
+
+
+Error! Kindly resolve above error(s) and try again.
+
+Aborting Installation...
+

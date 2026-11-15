@@ -1,0 +1,24 @@
+# One-shot run: container u2504final (ubuntu:25.04, x86_64)
+start=2026-11-15T12:40:42 end=2026-11-15T13:04:38 exit=0
+os: Ubuntu 25.04 arch=x86_64
+--- tools
+ghdl: GHDL 4.1.0 (tarball) [Dunoon edition]
+verilator: Verilator 4.210 2021-07-07 rev v4.204-73-g8e2ba6a00
+kicad-cli: 8.0.8
+ngspice: /usr/bin/ngspice ; esim launcher: /usr/bin/esim
+--- eSim venv
+python 3.13.3
+ok   PyQt5.QtWidgets
+ok   matplotlib
+ok   watchdog
+ok   hdlparse
+--- sky130
+/usr/share/local/sky130_fd_pr
+--- GHDL built with
+ LLVM_CONFIG="/usr/bin/llvm-config-18" CXX="clang++-18" \
+clang++-18 -c `/usr/bin/llvm-config-18 --cxxflags` -g -Wall -g -o llvm-cbindings.o src/ortho/llvm6/llvm-cbindings.cpp
+--- final lines of install log
+'images/logo.png' -> '/home/ubuntu/.esim/logo.png'
+-----------------eSim Installed Successfully-----------------
+Type "esim" in Terminal to launch it
+or double click on "eSim" icon placed on Desktop

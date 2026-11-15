@@ -1,0 +1,8 @@
+  inflating: nghdl/src/ghdlserver/compile.sh  
+  inflating: nghdl/src/ghdlserver/ghdlserver.c  
+  inflating: nghdl/src/ghdlserver/ghdlserver.h  
+  inflating: nghdl/src/ghdlserver/uthash.h  
+  inflating: nghdl/src/ghdlserver/Utility_Package.vhdl  
+  inflating: nghdl/src/ghdlserver/Vhpi_Package.vhdl  
+Detected Ubuntu Version: 
+Unsupported Ubuntu version: 25.04 ()

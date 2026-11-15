@@ -35,3 +35,7 @@ It contains the documentation to package eSim for Ubuntu OS.
 6. Compress `kicadLibrary` folder to a `tar.xz` format and then remove that folder.
 
 7. Compress `eSim-<version>` to a zip format for distribution.
+
+## Ubuntu 25.04 installation report
+
+Problems found while installing eSim 2.5 on Ubuntu 25.04, how each was fixed, and the evidence (log excerpts and screenshots) are in [UBUNTU_25.04_INSTALL_REPORT.md](UBUNTU_25.04_INSTALL_REPORT.md).

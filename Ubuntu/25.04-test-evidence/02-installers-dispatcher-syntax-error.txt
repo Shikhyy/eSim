@@ -1,0 +1,3 @@
+$ bash -n Ubuntu/install-eSim.sh   # original installers-branch file
+/tmp/install-eSim.branch-orig.sh: line 70: syntax error near unexpected token `}'
+/tmp/install-eSim.branch-orig.sh: line 70: `}'

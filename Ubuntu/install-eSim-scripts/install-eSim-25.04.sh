@@ -67,11 +67,19 @@ function installNghdl
     cd nghdl/
     chmod +x install-nghdl.sh
 
-    # Do not trap on error of any command. Let NGHDL script handle its own errors.
-    trap "" ERR
+    # nghdl.zip shipped with eSim 2.5 has no Ubuntu 25.04 support: add it
+    if ! grep -q "\"25.04\")" install-nghdl.sh; then
+        cp "$eSim_Home/install-eSim-scripts/nghdl-25.04/install-nghdl-25.04.sh" install-nghdl-scripts/
+        perl -0pi -e 's|(        "24.04"\)\n            SCRIPT="\$SCRIPT_DIR/install-nghdl-24.04.sh"\n            ;;\n)|$1        "25.04")\n            SCRIPT="\$SCRIPT_DIR/install-nghdl-25.04.sh"\n            ;;\n|' install-nghdl.sh
+    fi
 
-    ./install-nghdl.sh --install       # Install NGHDL
-        
+    # Do not trap on error of any command, but do NOT hide an NGHDL failure
+    trap "" ERR
+    if ! ./install-nghdl.sh --install; then       # Install NGHDL
+        echo -e "\n\nERROR: NGHDL installation failed. See the messages above."
+        exit 1
+    fi
+
     # Set trap again to error_exit function to exit on errors
     trap error_exit ERR
 
@@ -133,7 +141,7 @@ function installKicad
                 fi
             else
                 echo "KiCad 8.0 is already installed."
-                exit 0
+                return 0
             fi
         fi
 
@@ -170,8 +178,11 @@ function installDependency
     set -e      # Re-enable exit on error
     trap error_exit ERR
     
+    echo "Installing prerequisites (add-apt-repository, lsb_release, unzip, file)..."
+    sudo apt-get install -y software-properties-common lsb-release unzip file
+
     echo "Instaling virtualenv......................."
-    sudo apt install python3-virtualenv
+    sudo apt install -y python3-virtualenv
    
     echo "Creating virtual environment to isolate packages "
     virtualenv $config_dir/env

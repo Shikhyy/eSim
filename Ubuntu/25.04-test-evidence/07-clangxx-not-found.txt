@@ -1,0 +1,10 @@
+18058- CXXFLAGS=" -g -Wall -g" \
+18059- GNATMAKE="gnatmake" all
+18060-make[1]: Entering directory '/work/eSim-2.5/nghdl/ghdl-4.1.0'
+18061-clang++ -c `/usr/bin/llvm-config-18 --cxxflags` -g -Wall -g -o llvm-cbindings.o src/ortho/llvm6/llvm-cbindings.cpp
+18062:/bin/sh: 1: clang++: not found
+18063-make[1]: *** [src/ortho/llvm6/Makefile:20: llvm-cbindings.o] Error 127
+18064-make[1]: Leaving directory '/work/eSim-2.5/nghdl/ghdl-4.1.0'
+18065-make: *** [Makefile:410: ghdl1-llvm] Error 2
+18066-
+18067-
